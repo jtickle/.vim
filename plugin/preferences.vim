@@ -26,6 +26,8 @@ set backspace=2       " makes backspace work like you expect
 set incsearch         " Search while typing the search string
 set ignorecase        " Ignore case by default in searching because we are human
 
+set textwidth=80      " Auto linebreak after 80 characters.  To disable, :unset tw
+
 " In Javascript, only ever do one indent regardless of how many {{{
 " happened in the previous line
 let g:SimpleJsIndenter_BriefMode = 1

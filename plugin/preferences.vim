@@ -26,7 +26,7 @@ set backspace=2       " makes backspace work like you expect
 set incsearch         " Search while typing the search string
 set ignorecase        " Ignore case by default in searching because we are human
 
-set textwidth=80      " Auto linebreak after 80 characters.  To disable, :unset tw
+set textwidth=80      " Auto linebreak after 80 characters.  To disable, :set tw=0
 
 " In Javascript, only ever do one indent regardless of how many {{{
 " happened in the previous line
@@ -36,8 +36,8 @@ cabbrev tlo TlistOpen
 cabbrev tlc TlistClose
 
 " In HTML, only indent two characters at a time, because that seems to be
-" convention
-autocmd BufRead,BufNewFile *.htm* setlocal sw=2 sts=2 et
+" convention, also don't ever auto-linebreak
+autocmd BufRead,BufNewFile *.htm* setlocal sw=2 sts=2 et textwidth=0
 
 filetype plugin indent on
 

@@ -150,7 +150,7 @@ function JSFrame()
     let s:line = line(".")
     call setline(s:line, "define([")
     call append(s:line,  "], function() {")
-    call append(s:line+1,"}")
+    call append(s:line+1,"});")
     unlet s:line
 endfunction
 

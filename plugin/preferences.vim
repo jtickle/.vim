@@ -40,6 +40,7 @@ cabbrev tlc TlistClose
 " In HTML, only indent two characters at a time, because that seems to be
 " convention, also don't ever auto-linebreak
 autocmd BufRead,BufNewFile *.htm* setlocal sw=2 sts=2 et textwidth=0
+autocmd BufRead,BufNewFile *.tpl setlocal sw=2 sts=2 et textwidth=0
 
 filetype plugin indent on
 

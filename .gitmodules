@@ -1,6 +1,9 @@
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
-	url = git@github.com:/groenewege/vim-less
+	url = https://github.com/groenewege/vim-less.git
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
-	url = git@github.com:/kchmck/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/editorconfig"]
+	path = bundle/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git

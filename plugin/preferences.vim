@@ -7,6 +7,8 @@
 
 call pathogen#infect()
 
+set encoding=utf-8
+
 set showmode          " Tell you if you're in insert mode
 set tabstop=4         " Set the tabstop to 4 spaces
 set shiftwidth=4      " Shiftwidth should match tabstop

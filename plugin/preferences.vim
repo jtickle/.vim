@@ -5,7 +5,7 @@
 " behavior for the vim editor.
 "
 
-call pathogen#infect()
+execute pathogen#infect()
 
 set encoding=utf-8
 

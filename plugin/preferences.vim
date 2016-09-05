@@ -10,9 +10,9 @@ execute pathogen#infect()
 set encoding=utf-8
 
 set showmode          " Tell you if you're in insert mode
-set tabstop=4         " Set the tabstop to 4 spaces
-set shiftwidth=4      " Shiftwidth should match tabstop
-set softtabstop=4     " Finally make backspace do what it's fucking supposed to
+set tabstop=2         " Set the tabstop to 4 spaces
+set shiftwidth=2      " Shiftwidth should match tabstop
+set softtabstop=2     " Finally make backspace do what it's fucking supposed to
 set expandtab         " Convert tabs to <tabstop> number of spaces
 set wrap              " Do not wrap lines longer than the window
 set number            " Always show line numbers

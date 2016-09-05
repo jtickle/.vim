@@ -19,3 +19,6 @@
 [submodule "bundle/puppet-syntax-vim"]
 	path = bundle/puppet-syntax-vim
 	url = https://github.com/puppetlabs/puppet-syntax-vim
+[submodule "bundle/vim-literate-coffeescript"]
+	path = bundle/vim-literate-coffeescript
+	url = https://github.com/jwhitley/vim-literate-coffeescript.git

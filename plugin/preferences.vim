@@ -10,9 +10,9 @@ execute pathogen#infect()
 set encoding=utf-8
 
 set showmode          " Tell you if you're in insert mode
-set tabstop=4         " Set the tabstop to 4 spaces
-set shiftwidth=4      " Shiftwidth should match tabstop
-set softtabstop=4     " Finally make backspace do what it's fucking supposed to
+set tabstop=2         " Set the tabstop to 4 spaces
+set shiftwidth=2      " Shiftwidth should match tabstop
+set softtabstop=2     " Finally make backspace do what it's fucking supposed to
 set expandtab         " Convert tabs to <tabstop> number of spaces
 set wrap              " Do not wrap lines longer than the window
 set number            " Always show line numbers
@@ -35,6 +35,10 @@ set textwidth=80      " Auto linebreak after 80 characters.  To disable, :set tw
 " In Javascript, only ever do one indent regardless of how many {{{
 " happened in the previous line
 let g:SimpleJsIndenter_BriefMode = 1
+
+" Assume all Javascript is JSX because even if it's not a React project I won't
+" be doing it any other way
+let g:jsx_ext_required = 0
 
 cabbrev tlo TlistOpen
 cabbrev tlc TlistClose

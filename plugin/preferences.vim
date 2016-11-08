@@ -43,6 +43,9 @@ let g:jsx_ext_required = 0
 cabbrev tlo TlistOpen
 cabbrev tlc TlistClose
 
+" Literate Coffeescript
+autocmd FileType litcoffee runtime ftplugin/coffee.vim
+
 " In HTML, only indent two characters at a time, because that seems to be
 " convention, also don't ever auto-linebreak
 autocmd BufRead,BufNewFile *.htm* setlocal sw=2 sts=2 et textwidth=0

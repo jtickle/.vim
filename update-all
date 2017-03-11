@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Add bundle repositories here
+# NOTE: this script assumes that the name of the repo is the last part of the
+# URL.  If it ends in .git, that will be stripped off.
+BUNDLES=$(cat <<HERE
+https://github.com/groenewege/vim-less.git
+https://github.com/kchmck/vim-coffee-script.git
+https://github.com/editorconfig/editorconfig-vim.git
+https://github.com/tpope/vim-fireplace.git
+https://github.com/tpope/vim-classpath.git
+https://github.com/guns/vim-clojure-static.git
+https://github.com/puppetlabs/puppet-syntax-vim.git
+https://github.com/pangloss/vim-javascript.git
+https://github.com/mxw/vim-jsx.git
+https://github.com/majutsushi/tagbar.git
+https://github.com/pearofducks/ansible-vim.git
+HERE
+)
+
+# Local bundle install path; you probably don't want to change this
+BUNDLEPATH=bundle/
+
+# Master source of pathogen.vim.  If you have a fork or some such, you can
+# change this to point to it.  Or comment this line out and remove 'autoload'
+# from gitignore, and you can just keep the Pathogen script in this repository.
+PATHOGEN="https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+
+# Local pathogen install path; you probably don't want to change this
+PATHOGENPATH=autoload/pathogen.vim
+
+# This script assumes you have a GNU system.  It may work on other unixes, but I
+# have not tried it.  Uncomment ONLY ONE line below to choose between curl and
+# wget.
+
+function go-get { curl $1 > $2; }
+#function go-get { wget -o $2 $1 }
+
+# Script starts here
+function pretty {
+  echo -e "[32m$1[0m"
+}
+
+# Update Pathogen
+pretty "Getting New $PATHOGENPATH..."
+mkdir -p $(dirname $PATHOGENPATH)
+[ -f $PATHOGENPATH ] && mv $PATHOGENPATH $PATHOGENPATH.prev
+go-get $PATHOGEN $PATHOGENPATH
+
+# Install Bundles
+mkdir -p $BUNDLEPATH
+
+for i in $BUNDLES; do
+  REPO=$(basename -s .git $i)
+  pretty "Updating $REPO from $i..."
+  if [ -d $BUNDLEPATH/$REPO ]; then
+    (cd $BUNDLEPATH/$REPO; git pull)
+  else
+    (cd $BUNDLEPATH; git clone $i)
+  fi
+done

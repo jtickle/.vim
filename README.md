@@ -1,6 +1,16 @@
 Note: you must create a ~/.vimrc containing this line:
 
+'''
 runtime vimrc
+'''
+
+You will need to run update-all before this will work, because that will grab
+the latest copy of Pathogen.
+
+To install a new bundle, add it to the HEREDOC at the top of update-all, and
+then run update-all.
+
+To update Pathogen and all your bundles, just run update-all.
 
 ----------------
 

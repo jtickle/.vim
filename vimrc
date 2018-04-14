@@ -30,7 +30,11 @@ set backspace=2       " makes backspace work like you expect
 set incsearch         " Search while typing the search string
 set ignorecase        " Ignore case by default in searching because we are human
 
-set textwidth=80      " Auto linebreak after 80 characters.  To disable, :set tw=0
+set textwidth=0       " Auto linebreak is more trouble than it's worth
+
+" Make tab completion like bash
+set wildmode=longest,list,full
+set wildmenu
 
 " In Javascript, only ever do one indent regardless of how many {{{
 " happened in the previous line
@@ -131,15 +135,18 @@ endfunction
 " Adds HTML skeleton to file
 function HTMLFrame()
     let s:line=line(".")
-    call setline( s:line,"<!DOCTYPE html>")
-    call append(  s:line,"<html>")
-    call append(s:line+1,"  <head>")
-    call append(s:line+2,"    <title></title>")
-    call append(s:line+3,"  </head>")
-    call append(s:line+4,"  <body>")
-    call append(s:line+5,"    ")
-    call append(s:line+6,"  </body>")
-    call append(s:line+7,"</html>")
+    call setline( s:line, "<!DOCTYPE html>")
+    call append(  s:line, "<html lang=\"en\">")
+    call append(s:line+1, "  <head>")
+    call append(s:line+2, "    <meta charset=\"utf-8\">")
+    call append(s:line+3, "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">")
+    call append(s:line+4, "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">")
+    call append(s:line+5, "    <title></title>")
+    call append(s:line+6, "  </head>")
+    call append(s:line+7, "  <body>")
+    call append(s:line+8, "    ")
+    call append(s:line+9, "  </body>")
+    call append(s:line+10,"</html>")
     unlet s:line
 endfunction
 

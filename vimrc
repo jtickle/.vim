@@ -131,6 +131,34 @@ function FunctionHeading()
     unlet s:line
 endfunction
 
+""""""""""
+" Python "
+""""""""""
+
+function PythonTemplate()
+  let s:line = line(".")
+  call setline(s:line,   "# <one line - program's name and a brief idea of what it does.>")
+  call append(s:line,    "# https://moderntinker.org/projects/")
+  call append(s:line+1,  "# Copyright (C) <year>  <name of author>")
+  call append(s:line+2,  "# ")
+  call append(s:line+3,  "# This program is free software: you can redistribute it and/or modify")
+  call append(s:line+4,  "# it under the terms of the GNU General Public License as published by")
+  call append(s:line+5,  "# the Free Software Foundation, either version 3 of the License, or")
+  call append(s:line+6,  "# (at your option) any later version.")
+  call append(s:line+7,  "# ")
+  call append(s:line+8,  "# This program is distributed in the hope that it will be useful,")
+  call append(s:line+9 ,  "# but WITHOUT ANY WARRANTY; without even the implied warranty of")
+  call append(s:line+10, "# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the")
+  call append(s:line+11, "# GNU General Public License for more details.")
+  call append(s:line+12, "# ")
+  call append(s:line+13, "# You should have received a copy of the GNU General Public License")
+  call append(s:line+14, "# along with this program.  If not, see <http://www.gnu.org/licenses/>.")
+  call append(s:line+15, "")
+endfunction
+
+autocmd BufNewFile *.py execute PythonTemplate()
+autocmd BufNewFile,BufRead *.py set tw=79
+
 """""""""""
 " Pelican "
 """""""""""
@@ -151,7 +179,7 @@ endfunction
 
 " If editing reStructuredText, assume Pelican
 autocmd BufNewFile *.rst execute PelicanTemplate()
-autocmd BufNewFile *.rst set tw=79
+autocmd BufNewFile,BufRead *.rst set tw=79
 
 imap <F2>  <esc>mz:execute FileHeading()<enter>`zA
 imap <F3>  <esc>mz:execute FunctionHeading()<enter>'zjA

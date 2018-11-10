@@ -157,7 +157,7 @@ function PythonTemplate()
 endfunction
 
 autocmd BufNewFile *.py execute PythonTemplate()
-autocmd BufNewFile,BufRead *.py set tw=79
+"autocmd BufNewFile,BufRead *.py set tw=79
 
 """""""""""
 " Pelican "
